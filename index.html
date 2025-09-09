@@ -1,24 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="assets/css/all-tailwind-classes-full-min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/tailwind.config.js"></script>
-    <script src="assets/js/javaScript.js"></script>
-    <title>Blog</title>
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2b2c2f;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card {
+            background: #2f3136;
+            border-radius: 20px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 8px 8px 15px #232427, -8px -8px 15px #383a3e;
+            text-align: center;
+            color: #fff;
+        }
+
+        .card img.avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            margin: 5px 0;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .social-icons {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #00acee;
+            transform: scale(1.2);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .buttons button {
+            flex: 1;
+            padding: 8px 0;
+            border: none;
+            border-radius: 10px;
+            background: #2b2c2f;
+            box-shadow: 4px 4px 8px #232427, -4px -4px 8px #383a3e;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buttons button:hover {
+            box-shadow: inset 4px 4px 8px #232427, inset -4px -4px 8px #383a3e;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="flex justify-center items-center">
-        <h1 class="bg-yellow-100 ">
-            hello world
-        </h1>
+    <div class="card">
+        <img class="avatar" src="https://i.pravatar.cc/80" alt="Avatar">
+        <h2>Trần Văn Hiển <i class="fa-solid fa-check-circle" style="color:#1da1f2;font-size:14px;"></i></h2>
+        <p>Tôi Là Web Developer</p>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+
+        <div class="buttons">
+            <button>Nhắn Tin</button>
+            <button>Theo Dõi</button>
+        </div>
+
+        <div class="stats">
+            <span>❤️ 457.5K</span>
+            <span>💬 165.7K</span>
+            <span>↗ 286.2K</span>
+        </div>
     </div>
 </body>
 
