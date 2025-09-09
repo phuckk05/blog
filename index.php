@@ -15,9 +15,14 @@
 </head>
 
 <body>
-    <h1>
-        hello wolrd kk
-    </h1>
+    <div class="flex justify-center items-center">
+        <h1 class="bg-yellow-100 ">
+            hello world
+        </h1>
+    </div>
+    <?php
+    echo 'Nguyen Dinh Phuc';
+    ?>
 
 </body>
 
