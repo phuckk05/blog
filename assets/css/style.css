@@ -1,0 +1,20 @@
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #343a40;
+}
+#demo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e10d0d;
+    text-align: center;
+    margin-top: 20px;
+}
+.text-select-accuont{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d6efd;
+    text-align: center;
+    margin-top: 20px;
+
+}
