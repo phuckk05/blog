@@ -8,52 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/tailwind.config.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="assets/js/javaScript.js"></script>
     <title>Profile</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            overflow-y: scroll;
-        }
-
-        .dropdown-menu.show {
-            display: block !important;
-        }
-
-        #dropdown-menu {
-            /* Đảm bảo menu hiển thị toàn màn hình và có thể cuộn */
-            position: fixed;
-            top: 30;
-            right: 0;
-            margin-right: 10px;
-            width: 150px;
-            height: auto;
-            overflow: hidden;
-            /* Hoặc sử dụng max-height: 100vh; */
-            /* overflow-y: auto; */
-            /* Cho phép cuộn dọc */
-            z-index: 999;
-            /* Đảm bảo menu nằm trên các nội dung khác */
-            background-color: rgba(0, 0, 0, 0.9);
-            /* Làm tối nền để menu nổi bật */
-        }
-
-        /* Tùy chỉnh thêm cho các mục menu để chúng không bị tràn */
-        #dropdown-menu ul {
-            /* Điều chỉnh lề, khoảng cách để menu vừa với màn hình */
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-    </style>
 </head>
 
 <body class="bg-gray-900 text-white">
@@ -64,14 +21,17 @@
             <nav class="hidden md:block">
                 <ul class="flex space-x-8 text-gray-400 gap-8">
                     <li><a onclick="change(1)"
-                            class="font-bold transition duration-300 hover:text-white cursor-pointer">Home</a></li>
+                            class="border-b-4 border-white pb-2 ui-item font-bold transition duration-300 hover:text-white cursor-pointer">Home</a>
+                    </li>
                     <li><a onclick="change(2)"
-                            class="font-bold transition duration-300 hover:text-white cursor-pointer">About</a></li>
+                            class="ui-item  font-bold pb-2 transition duration-300 hover:text-white cursor-pointer">About</a>
+                    </li>
                     <li><a onclick="change(3)"
-                            class="font-bold transition duration-300 hover:text-white cursor-pointer">Portfolio</a>
+                            class="ui-item font-bold pb-2 transition duration-300 hover:text-white cursor-pointer">Portfolio</a>
                     </li>
                     <li><a onclick="change(4)"
-                            class="font-bold transition duration-300 hover:text-white cursor-pointer">Blog</a></li>
+                            class="ui-item  font-bold pb-2 transition duration-300 hover:text-white cursor-pointer">Blog</a>
+                    </li>
                 </ul>
             </nav>
             <div class="flex items-center space-x-4">
@@ -377,9 +337,23 @@
         </section>
     </main>
     <main id="main-4" class="hidden min-h-screen pt-24 flex items-center justify-center bg-gray-900">
+        <section class="py-4 bg-gray-900 max-w-7xl">
+            <div class="container mx-auto px-4">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700">
+                    <div class="border-b border-gray-600 pb-4 mb-6 flex items-center gap-2">
+                        <h2 class="text-2xl font-bold text-white mb-2">life photos</h2>
+                        <div class="w-32 h-1 bg-yellow-400 rounded-full"></div>
+                    </div>
+                    <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+                        <img id="image" src="assets/image/blog-1.jpg" alt=""
+                            class="w-full h-48 object-cover rounded-lg"></img>
+                    </div>
+                </div>
 
+            </div>
+        </section>
     </main>
-    <div class="fixed right-4 bottom-4 flex flex-col space-y-2">
+    <!-- <div class="fixed right-4 bottom-4 flex flex-col space-y-2">
         <button class="p-3 bg-gray-700 text-white rounded-full shadow-lg hover:bg-gray-600 transition duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -392,128 +366,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
         </button>
-    </div>
+    </div> -->
 
 </body>
 
 </html>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const textElement = document.getElementById("typing-text");
-        const textToType = "Mobile App Development";
-        let index = 0;
-        let isDeleting = false;
 
-        function type() {
-            const currentText = textToType.substring(0, index);
-            textElement.textContent = currentText;
-
-            if (!isDeleting) {
-                if (index < textToType.length) {
-                    index++;
-                    setTimeout(type, 100);
-                } else {
-                    isDeleting = true;
-                    setTimeout(type, 1500);
-                }
-            } else {
-                if (index > 0) {
-                    index--;
-                    setTimeout(type, 50);
-                } else {
-                    isDeleting = false;
-                    setTimeout(type, 500);
-                }
-            }
-        }
-        type();
-
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes blink {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0; }
-            }
-            #cursor {
-                animation: blink 1s step-end infinite;
-            }
-        `;
-        document.head.appendChild(style);
-
-        const openMenuBtn = document.getElementById('open-menu');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const navLinks = mobileMenuOverlay?.querySelectorAll('a');
-
-        function closeMenu() {
-            mobileMenuOverlay?.classList.add('hidden');
-        }
-
-        if (openMenuBtn) {
-            openMenuBtn.addEventListener('click', () => {
-                mobileMenuOverlay?.classList.remove('hidden');
-            });
-        }
-
-        if (navLinks) {
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    closeMenu();
-                });
-            });
-        }
-
-        const toggleButton = document.getElementById('dropdown-toggle');
-        const dropdownMenu = document.getElementById('dropdown-menu');
-
-        // Chuyển đổi lớp "hidden" khi nút được click
-        if (toggleButton && dropdownMenu) {
-            toggleButton.addEventListener('click', function (event) {
-                event.stopPropagation(); // Ngăn sự kiện click lan truyền ra ngoài
-                dropdownMenu.classList.toggle('hidden');
-                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
-                toggleButton.setAttribute('aria-expanded', !isExpanded);
-            });
-
-            // Đóng menu khi click vào bất cứ đâu bên ngoài menu
-            document.addEventListener('click', function (event) {
-                if (!toggleButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                    dropdownMenu.classList.add('hidden');
-                    toggleButton.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Đóng menu khi click vào một link bên trong nó
-            dropdownMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function () {
-                    dropdownMenu.classList.add('hidden');
-                    toggleButton.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-    });
-
-    function change(index) {
-        const main1 = document.getElementById('main-1');
-        const main2 = document.getElementById('main-2');
-        const main3 = document.getElementById('main-3');
-        const main4 = document.getElementById('main-4');
-
-        const allMains = [main1, main2, main3, main4];
-
-        allMains.forEach(main => {
-            if (main) {
-                main.classList.add('hidden');
-            }
-        });
-
-        if (index === 1 && main1) {
-            main1.classList.remove('hidden');
-        } else if (index === 2 && main2) {
-            main2.classList.remove('hidden');
-        } else if (index === 3 && main3) {
-            main3.classList.remove('hidden');
-        } else if (index === 4 && main4) {
-            main4.classList.remove('hidden');
-        }
-    }
 </script>
